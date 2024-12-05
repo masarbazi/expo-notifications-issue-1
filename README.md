@@ -1,11 +1,13 @@
 # expo-notifications-issue-1
 
-Minimal code example of expo notifications type issue
+## [#334470](https://github.com/expo/expo/issues/33470)
+
+Minimal code example of expo notifications type issue  
 `App.tsx` file, `getAllScheduledNotifications()` function
 
-Trying to know about local notifications but there are problems with types returned by `getAllScheduledNotificationsAsync(): NotificationRequest[]`.
-`NotificationRequest` represents a `trigger` property of type `NotificationTrigger` which is used to know about when a notification is going to be triggered.
-But problem is with identifying `SchedulableNotificationTriggerInput` type, which is a union and all types of this union should represent a `type` property that is used to identify what scheduled type is returned.
+Trying to know about local notifications but there are problems with types returned by `getAllScheduledNotificationsAsync(): NotificationRequest[]`.  
+`NotificationRequest` represents a `trigger` property of type `NotificationTrigger` which is used to know about when a notification is going to be triggered.  
+But problem is with identifying `SchedulableNotificationTriggerInput` type, which is a union and all types of this union should represent a `type` property that is used to identify what scheduled type is returned.  
 There is this `type` property in all `SchedulableNotificationTriggerInput` union types but one of them (`DateTriggerInput`) is causing `type` property not be useful. (`type` property not identified by typescript).
 
 ```typescript
